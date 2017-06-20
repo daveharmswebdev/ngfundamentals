@@ -4,7 +4,6 @@ import { ActivatedRoute } from '@angular/router';
 import { EventService, IEvent, ISession } from '../shared/index';
 
 
-
 @Component({
   templateUrl: '/app/events/event-details/event-details.component.html',
   styles: [`
@@ -16,7 +15,8 @@ import { EventService, IEvent, ISession } from '../shared/index';
 export class EventDetailsComponent implements OnInit {
   event:IEvent;
   addMode:boolean;
-
+  filterBy: string = 'all';
+  
   constructor(
     private eventService: EventService,
     private route: ActivatedRoute
@@ -41,5 +41,4 @@ export class EventDetailsComponent implements OnInit {
   cancelAddSession() {
     this.addMode = false;
   }
-
 }
