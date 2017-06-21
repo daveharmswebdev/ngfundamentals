@@ -21,13 +21,16 @@ import { NavBarComponent } from './nav/navbar.component';
 import { Error404Component } from './errors/404.component';
 
 import { 
-  ToastrService, 
+  TOASTR_TOKEN,
+  Toastr, 
   CollapsibleWellComponent 
 } from './common/index';
 
 import { AuthService } from './user/auth.service';
 
 import { appRoutes } from './routes';
+
+declare let toastr: Toastr;
 
 @NgModule({
   imports: [
@@ -51,7 +54,10 @@ import { appRoutes } from './routes';
     ],
   providers: [
     EventService,
-    ToastrService,
+    {
+      provide: TOASTR_TOKEN,
+      useValue: toastr
+    },
     EventRouteActivator,
     EventListResolver,
     AuthService,
